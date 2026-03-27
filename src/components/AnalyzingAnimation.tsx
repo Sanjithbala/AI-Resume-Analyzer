@@ -29,17 +29,17 @@ export default function AnalyzingAnimation({ onComplete }: Props) {
   }, [currentStep, onComplete]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 px-4">
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ background: '#f8fafc' }}>
       <div className="max-w-md w-full">
         <div className="flex flex-col items-center mb-10">
           <div className="relative">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center animate-pulse">
+            <div className="w-20 h-20 rounded-full flex items-center justify-center animate-pulse" style={{ background: '#2563eb' }}>
               <Shield className="w-10 h-10 text-white" />
             </div>
-            <div className="absolute inset-0 w-20 h-20 rounded-full border-2 border-cyan-400/30 animate-ping" />
+            <div className="absolute inset-0 w-20 h-20 rounded-full animate-ping" style={{ border: '2px solid rgba(37,99,235,0.3)' }} />
           </div>
-          <h2 className="text-2xl font-bold text-white mt-6">Analyzing Your Resume</h2>
-          <p className="text-gray-400 text-sm mt-1">AI Career Shield™ is processing your profile</p>
+          <h2 className="text-2xl font-bold mt-6" style={{ color: '#0f172a' }}>Analyzing Your Resume</h2>
+          <p className="text-sm mt-1" style={{ color: '#64748b' }}>AI Career Shield™ is processing your profile</p>
         </div>
 
         <div className="space-y-4">
@@ -51,33 +51,34 @@ export default function AnalyzingAnimation({ onComplete }: Props) {
             return (
               <div
                 key={idx}
-                className={`flex items-center gap-4 p-3 rounded-xl transition-all duration-500 ${
+                className="flex items-center gap-4 p-3 rounded-xl transition-all duration-500"
+                style={
                   isDone
-                    ? "bg-emerald-500/10 border border-emerald-500/20"
+                    ? { background: '#ecfdf5', border: '1px solid #a7f3d0' }
                     : isActive
-                    ? "bg-cyan-500/10 border border-cyan-500/30"
-                    : "bg-white/[0.02] border border-white/5"
-                }`}
+                    ? { background: '#eff6ff', border: '1px solid #bfdbfe' }
+                    : { background: '#f8fafc', border: '1px solid #e2e8f0' }
+                }
               >
                 <div
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all ${isActive ? 'animate-pulse' : ''}`}
+                  style={
                     isDone
-                      ? "bg-emerald-500/20"
+                      ? { background: '#d1fae5' }
                       : isActive
-                      ? "bg-cyan-500/20 animate-pulse"
-                      : "bg-white/5"
-                  }`}
+                      ? { background: '#dbeafe' }
+                      : { background: '#f1f5f9' }
+                  }
                 >
                   {isDone ? (
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                    <CheckCircle2 className="w-5 h-5" style={{ color: '#059669' }} />
                   ) : (
-                    <Icon className={`w-5 h-5 ${isActive ? "text-cyan-400" : "text-gray-600"}`} />
+                    <Icon className="w-5 h-5" style={{ color: isActive ? '#2563eb' : '#94a3b8' }} />
                   )}
                 </div>
                 <span
-                  className={`text-sm font-medium transition-colors ${
-                    isDone ? "text-emerald-400" : isActive ? "text-cyan-300" : "text-gray-600"
-                  }`}
+                  className="text-sm font-medium transition-colors"
+                  style={{ color: isDone ? '#059669' : isActive ? '#2563eb' : '#94a3b8' }}
                 >
                   {step.text}
                 </span>
@@ -87,10 +88,10 @@ export default function AnalyzingAnimation({ onComplete }: Props) {
         </div>
 
         {/* Progress bar */}
-        <div className="mt-8 h-1.5 bg-white/5 rounded-full overflow-hidden">
+        <div className="mt-8 h-1.5 rounded-full overflow-hidden" style={{ background: '#e2e8f0' }}>
           <div
-            className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full transition-all duration-700"
-            style={{ width: `${(currentStep / STEPS.length) * 100}%` }}
+            className="h-full rounded-full transition-all duration-700"
+            style={{ background: '#2563eb', width: `${(currentStep / STEPS.length) * 100}%` }}
           />
         </div>
       </div>

@@ -19,15 +19,15 @@ interface Props {
 }
 
 const trendConfig = {
-  rising: { icon: TrendingUp, text: 'text-emerald-400', bg: 'bg-emerald-500/10', label: 'Rising ↑' },
-  stable: { icon: Minus, text: 'text-amber-400', bg: 'bg-amber-500/10', label: 'Stable →' },
-  declining: { icon: TrendingDown, text: 'text-red-400', bg: 'bg-red-500/10', label: 'Declining ↓' },
+  rising: { icon: TrendingUp, text: '#059669', bg: '#ecfdf5', label: 'Rising ↑' },
+  stable: { icon: Minus, text: '#d97706', bg: '#fffbeb', label: 'Stable →' },
+  declining: { icon: TrendingDown, text: '#dc2626', bg: '#fef2f2', label: 'Declining ↓' },
 };
 
 const difficultyConfig = {
-  easy: { bg: 'bg-emerald-500/15', text: 'text-emerald-300', border: 'border-emerald-500/30' },
-  moderate: { bg: 'bg-amber-500/15', text: 'text-amber-300', border: 'border-amber-500/30' },
-  challenging: { bg: 'bg-red-500/15', text: 'text-red-300', border: 'border-red-500/30' },
+  easy: { bg: '#ecfdf5', text: '#047857', border: '#a7f3d0' },
+  moderate: { bg: '#fffbeb', text: '#b45309', border: '#fde68a' },
+  challenging: { bg: '#fef2f2', text: '#b91c1c', border: '#fecaca' },
 };
 
 export default function CareerSimulation({ resumeText }: Props) {
@@ -42,31 +42,33 @@ export default function CareerSimulation({ resumeText }: Props) {
   return (
     <div className="space-y-6">
       {/* Role Selector */}
-      <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-6">
+      <div className="rounded-2xl p-6" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}>
         <div className="flex items-center gap-3 mb-5">
-          <div className="p-2 rounded-xl bg-purple-500/20">
-            <Rocket className="w-5 h-5 text-purple-400" />
+          <div className="p-2 rounded-xl" style={{ background: '#f5f3ff' }}>
+            <Rocket className="w-5 h-5" style={{ color: '#7c3aed' }} />
           </div>
-          <h3 className="text-lg font-semibold text-white">Career Path Simulator</h3>
+          <h3 className="text-lg font-semibold" style={{ color: '#0f172a' }}>Career Path Simulator</h3>
         </div>
-        <p className="text-sm text-gray-400 mb-4">
+        <p className="text-sm mb-4" style={{ color: '#64748b' }}>
           Select a target role to simulate your career transition
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value as SimulationRole)}
-            className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500/40 transition-colors appearance-none cursor-pointer"
+            className="flex-1 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors appearance-none cursor-pointer"
+            style={{ background: '#f8fafc', border: '1px solid #e2e8f0', color: '#0f172a' }}
           >
             {SIMULATION_ROLES.map((role) => (
-              <option key={role} value={role} className="bg-gray-900">
+              <option key={role} value={role}>
                 {role}
               </option>
             ))}
           </select>
           <button
             onClick={handleSimulate}
-            className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold text-sm hover:opacity-90 transition-opacity cursor-pointer flex items-center gap-2 justify-center"
+            className="px-6 py-3 rounded-xl text-white font-semibold text-sm transition-opacity cursor-pointer flex items-center gap-2 justify-center hover:opacity-90"
+            style={{ background: '#2563eb' }}
           >
             <Zap className="w-4 h-4" />
             Simulate
@@ -80,55 +82,55 @@ export default function CareerSimulation({ resumeText }: Props) {
           {/* Key Metrics */}
           <div className="grid sm:grid-cols-3 gap-4">
             {/* Learning Time */}
-            <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-5 hover:scale-[1.02] transition-all">
+            <div className="rounded-2xl p-5 hover:scale-[1.02] transition-all" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}>
               <div className="flex items-center gap-2 mb-3">
-                <Clock className="w-4 h-4 text-blue-400" />
-                <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">Learning Time</span>
+                <Clock className="w-4 h-4" style={{ color: '#2563eb' }} />
+                <span className="text-xs uppercase tracking-wider font-medium" style={{ color: '#94a3b8' }}>Learning Time</span>
               </div>
-              <p className="text-3xl font-black text-white">
+              <p className="text-3xl font-black" style={{ color: '#0f172a' }}>
                 {result.learningTimeMonths}
-                <span className="text-lg text-gray-500 font-normal ml-1">mo</span>
+                <span className="text-lg font-normal ml-1" style={{ color: '#94a3b8' }}>mo</span>
               </p>
-              <div className={`mt-2 inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full border font-medium ${difficultyConfig[result.difficulty].bg} ${difficultyConfig[result.difficulty].text} ${difficultyConfig[result.difficulty].border}`}>
+              <div className="mt-2 inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full font-medium" style={{ background: difficultyConfig[result.difficulty].bg, color: difficultyConfig[result.difficulty].text, border: `1px solid ${difficultyConfig[result.difficulty].border}` }}>
                 {result.difficulty}
               </div>
             </div>
 
             {/* Salary */}
-            <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-5 hover:scale-[1.02] transition-all">
+            <div className="rounded-2xl p-5 hover:scale-[1.02] transition-all" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}>
               <div className="flex items-center gap-2 mb-3">
-                <DollarSign className="w-4 h-4 text-emerald-400" />
-                <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">Salary Range</span>
+                <DollarSign className="w-4 h-4" style={{ color: '#059669' }} />
+                <span className="text-xs uppercase tracking-wider font-medium" style={{ color: '#94a3b8' }}>Salary Range</span>
               </div>
-              <p className="text-2xl font-black text-white">
+              <p className="text-2xl font-black" style={{ color: '#0f172a' }}>
                 ${(result.salaryRange.median / 1000).toFixed(0)}K
               </p>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>
                 ${(result.salaryRange.min / 1000).toFixed(0)}K – ${(result.salaryRange.max / 1000).toFixed(0)}K
               </p>
-              <div className="mt-2 h-1.5 bg-white/5 rounded-full overflow-hidden">
+              <div className="mt-2 h-1.5 rounded-full overflow-hidden" style={{ background: '#e2e8f0' }}>
                 <div
-                  className="h-full bg-gradient-to-r from-emerald-500 to-green-400 rounded-full"
-                  style={{ width: `${(result.salaryRange.median / 250000) * 100}%` }}
+                  className="h-full rounded-full"
+                  style={{ background: '#10b981', width: `${(result.salaryRange.median / 250000) * 100}%` }}
                 />
               </div>
             </div>
 
             {/* Demand */}
-            <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-5 hover:scale-[1.02] transition-all">
+            <div className="rounded-2xl p-5 hover:scale-[1.02] transition-all" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}>
               <div className="flex items-center gap-2 mb-3">
-                <TrendingUp className="w-4 h-4 text-purple-400" />
-                <span className="text-xs text-gray-500 uppercase tracking-wider font-medium">Demand Trend</span>
+                <TrendingUp className="w-4 h-4" style={{ color: '#7c3aed' }} />
+                <span className="text-xs uppercase tracking-wider font-medium" style={{ color: '#94a3b8' }}>Demand Trend</span>
               </div>
-              <p className="text-3xl font-black text-white">
+              <p className="text-3xl font-black" style={{ color: '#0f172a' }}>
                 {result.demandScore.toFixed(1)}
-                <span className="text-lg text-gray-500 font-normal">/10</span>
+                <span className="text-lg font-normal" style={{ color: '#94a3b8' }}>/10</span>
               </p>
               {(() => {
                 const tc = trendConfig[result.demandTrend];
                 const TrendIcon = tc.icon;
                 return (
-                  <div className={`mt-2 inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full ${tc.bg} ${tc.text}`}>
+                  <div className="mt-2 inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full" style={{ background: tc.bg, color: tc.text }}>
                     <TrendIcon className="w-3 h-3" />
                     {tc.label}
                   </div>
@@ -138,59 +140,56 @@ export default function CareerSimulation({ resumeText }: Props) {
           </div>
 
           {/* Skill Match */}
-          <div className="rounded-2xl border border-white/5 bg-white/[0.03] p-6">
+          <div className="rounded-2xl p-6" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}>
             <div className="flex items-center justify-between mb-4">
-              <h4 className="text-sm font-semibold text-white">Skill Match</h4>
-              <span className={`text-sm font-bold ${
-                result.matchPercent >= 60 ? 'text-emerald-400' : result.matchPercent >= 30 ? 'text-amber-400' : 'text-red-400'
-              }`}>{result.matchPercent}%</span>
+              <h4 className="text-sm font-semibold" style={{ color: '#0f172a' }}>Skill Match</h4>
+              <span className="text-sm font-bold" style={{ color: result.matchPercent >= 60 ? '#059669' : result.matchPercent >= 30 ? '#d97706' : '#dc2626' }}>{result.matchPercent}%</span>
             </div>
-            <div className="h-3 bg-white/5 rounded-full overflow-hidden mb-5">
+            <div className="h-3 rounded-full overflow-hidden mb-5" style={{ background: '#e2e8f0' }}>
               <div
-                className={`h-full rounded-full transition-all duration-1000 ${
-                  result.matchPercent >= 60
-                    ? 'bg-gradient-to-r from-emerald-500 to-green-400'
-                    : result.matchPercent >= 30
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-400'
-                    : 'bg-gradient-to-r from-red-500 to-rose-400'
-                }`}
-                style={{ width: `${result.matchPercent}%` }}
+                className="h-full rounded-full transition-all duration-1000"
+                style={{
+                  background: result.matchPercent >= 60 ? '#10b981' : result.matchPercent >= 30 ? '#f59e0b' : '#ef4444',
+                  width: `${result.matchPercent}%`,
+                }}
               />
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {/* Matched Skills */}
               <div>
-                <p className="text-xs text-gray-400 font-medium mb-2 flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                <p className="text-xs font-medium mb-2 flex items-center gap-1.5" style={{ color: '#64748b' }}>
+                  <CheckCircle2 className="w-3.5 h-3.5" style={{ color: '#059669' }} />
                   Skills You Have ({result.matchedSkills.length})
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {result.matchedSkills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-0.5 rounded-full text-[11px] bg-emerald-500/15 text-emerald-300 border border-emerald-500/20"
+                      className="px-2.5 py-0.5 rounded-full text-[11px]"
+                      style={{ background: '#ecfdf5', color: '#047857', border: '1px solid #a7f3d0' }}
                     >
                       {skill}
                     </span>
                   ))}
                   {result.matchedSkills.length === 0 && (
-                    <span className="text-xs text-gray-600">No matching skills found</span>
+                    <span className="text-xs" style={{ color: '#94a3b8' }}>No matching skills found</span>
                   )}
                 </div>
               </div>
 
               {/* Gap Skills */}
               <div>
-                <p className="text-xs text-gray-400 font-medium mb-2 flex items-center gap-1.5">
-                  <XCircle className="w-3.5 h-3.5 text-red-400" />
+                <p className="text-xs font-medium mb-2 flex items-center gap-1.5" style={{ color: '#64748b' }}>
+                  <XCircle className="w-3.5 h-3.5" style={{ color: '#dc2626' }} />
                   Skills to Learn ({result.gapSkills.length})
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {result.gapSkills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-0.5 rounded-full text-[11px] bg-red-500/15 text-red-300 border border-red-500/20"
+                      className="px-2.5 py-0.5 rounded-full text-[11px]"
+                      style={{ background: '#fef2f2', color: '#b91c1c', border: '1px solid #fecaca' }}
                     >
                       + {skill}
                     </span>

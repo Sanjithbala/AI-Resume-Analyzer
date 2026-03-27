@@ -147,21 +147,22 @@ PROJECTS
 
   // ─── Landing State ────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-gray-950 text-white">
+    <div className="min-h-screen" style={{ background: '#f8fafc', color: '#0f172a' }}>
       {/* Navigation */}
-      <nav className="border-b border-white/5 backdrop-blur-xl bg-gray-950/50 sticky top-0 z-50">
+      <nav className="border-b sticky top-0 z-50" style={{ borderColor: '#e2e8f0', background: '#ffffff' }}>
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600">
+            <div className="p-1.5 rounded-lg" style={{ background: '#2563eb' }}>
               <Shield className="w-5 h-5 text-white" />
             </div>
-            <span className="font-bold text-lg">
-              Path4Career <span className="text-cyan-400">AI Career Shield™</span>
+            <span className="font-bold text-lg" style={{ color: '#0f172a' }}>
+              Path4Career <span style={{ color: '#2563eb' }}>AI Career Shield™</span>
             </span>
           </div>
           <button
             onClick={scrollToUpload}
-            className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-sm font-semibold hover:opacity-90 transition-opacity cursor-pointer"
+            className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-xl text-sm font-semibold text-white transition-all cursor-pointer hover:opacity-90"
+            style={{ background: '#2563eb' }}
           >
             Analyze Resume
             <ChevronRight className="w-4 h-4" />
@@ -170,43 +171,43 @@ PROJECTS
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        {/* Glow effects */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]" />
-        <div className="absolute top-40 right-1/4 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px]" />
-
+      <section className="relative overflow-hidden" style={{ background: '#ffffff' }}>
         <div className="relative max-w-6xl mx-auto px-4 pt-20 pb-16">
           <div className="text-center max-w-3xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-8">
-              <Sparkles className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm text-cyan-300 font-medium">AI-Powered Career Analysis</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-8" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
+              <Sparkles className="w-4 h-4" style={{ color: '#2563eb' }} />
+              <span className="text-sm font-medium" style={{ color: '#2563eb' }}>AI-Powered Career Analysis</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6" style={{ color: '#0f172a' }}>
               Is Your Career{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span style={{ color: '#2563eb' }}>
                 AI-Proof
               </span>
               ?
             </h1>
-            <p className="text-lg sm:text-xl text-gray-400 leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl mx-auto" style={{ color: '#64748b' }}>
               Upload your resume and get an instant{" "}
-              <strong className="text-white">AI Career Safety Score</strong>. Discover your strengths,
+              <strong style={{ color: '#0f172a' }}>AI Career Safety Score</strong>. Discover your strengths,
               vulnerability areas, and a personalized roadmap to stay ahead of automation.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
               <button
                 onClick={scrollToUpload}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg shadow-cyan-500/25 cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl text-white font-bold text-lg transition-all hover:scale-[1.02] cursor-pointer flex items-center justify-center gap-2"
+                style={{ background: '#2563eb', boxShadow: '0 4px 14px rgba(37,99,235,0.25)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = '#1d4ed8')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = '#2563eb')}
               >
                 <Shield className="w-5 h-5" />
                 Check Your Score Now
               </button>
               <button
                 onClick={loadSample}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-gray-300 font-medium hover:bg-white/10 transition-all cursor-pointer"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl font-medium transition-all cursor-pointer"
+                style={{ background: '#f1f5f9', color: '#0f172a', border: '1px solid #e2e8f0' }}
               >
                 Try Sample Resume
               </button>
@@ -215,16 +216,16 @@ PROJECTS
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto">
               <div className="text-center">
-                <p className="text-2xl font-bold text-white">50+</p>
-                <p className="text-xs text-gray-500">Skills Analyzed</p>
+                <p className="text-2xl font-bold" style={{ color: '#0f172a' }}>50+</p>
+                <p className="text-xs" style={{ color: '#64748b' }}>Skills Analyzed</p>
               </div>
-              <div className="text-center border-x border-white/10">
-                <p className="text-2xl font-bold text-white">3</p>
-                <p className="text-xs text-gray-500">Risk Categories</p>
+              <div className="text-center" style={{ borderLeft: '1px solid #e2e8f0', borderRight: '1px solid #e2e8f0' }}>
+                <p className="text-2xl font-bold" style={{ color: '#0f172a' }}>3</p>
+                <p className="text-xs" style={{ color: '#64748b' }}>Risk Categories</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-white">10+</p>
-                <p className="text-xs text-gray-500">Career Insights</p>
+                <p className="text-2xl font-bold" style={{ color: '#0f172a' }}>10+</p>
+                <p className="text-xs" style={{ color: '#64748b' }}>Career Insights</p>
               </div>
             </div>
           </div>
@@ -232,11 +233,11 @@ PROJECTS
       </section>
 
       {/* How It Works */}
-      <section className="py-20 border-t border-white/5">
+      <section className="py-20" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-white mb-3">How It Works</h2>
-            <p className="text-gray-400 max-w-lg mx-auto">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: '#0f172a' }}>How It Works</h2>
+            <p className="max-w-lg mx-auto" style={{ color: '#64748b' }}>
               Three simple steps to understand your career's AI resilience
             </p>
           </div>
@@ -246,36 +247,37 @@ PROJECTS
                 icon: Upload,
                 title: "Upload Resume",
                 desc: "Paste your resume text or upload a text file. We analyze your skills, experience, and keywords.",
-                color: "from-cyan-500 to-blue-600",
+                color: "#2563eb",
                 step: "01",
               },
               {
                 icon: Cpu,
                 title: "AI Analysis",
                 desc: "Our engine evaluates your skills against AI-resistant, AI-vulnerable, and future-proof categories.",
-                color: "from-blue-500 to-purple-600",
+                color: "#7c3aed",
                 step: "02",
               },
               {
                 icon: Target,
                 title: "Get Your Score",
                 desc: "Receive a detailed safety score, personalized recommendations, and a learning roadmap.",
-                color: "from-purple-500 to-pink-600",
+                color: "#db2777",
                 step: "03",
               },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="relative bg-white/[0.03] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all group"
+                className="relative rounded-2xl p-8 transition-all group hover:-translate-y-0.5"
+                style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}
               >
-                <span className="absolute top-4 right-4 text-5xl font-black text-white/[0.03] group-hover:text-white/[0.06] transition-colors">
+                <span className="absolute top-4 right-4 text-5xl font-black transition-colors" style={{ color: 'rgba(0,0,0,0.04)' }}>
                   {item.step}
                 </span>
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${item.color} flex items-center justify-center mb-5`}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style={{ background: item.color }}>
                   <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl font-bold mb-2" style={{ color: '#0f172a' }}>{item.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#64748b' }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -283,11 +285,11 @@ PROJECTS
       </section>
 
       {/* What We Analyze */}
-      <section className="py-20 border-t border-white/5">
+      <section className="py-20" style={{ background: '#ffffff', borderTop: '1px solid #e2e8f0' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-white mb-3">What We Analyze</h2>
-            <p className="text-gray-400 max-w-lg mx-auto">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: '#0f172a' }}>What We Analyze</h2>
+            <p className="max-w-lg mx-auto" style={{ color: '#64748b' }}>
               Your resume is evaluated across multiple dimensions of career resilience
             </p>
           </div>
@@ -297,61 +299,58 @@ PROJECTS
                 icon: ShieldCheck,
                 title: "AI-Resistant Skills",
                 items: ["System Design", "Architecture", "Leadership", "Problem Solving", "Product Thinking"],
-                color: "text-emerald-400",
-                bg: "bg-emerald-500/10",
-                border: "border-emerald-500/20",
+                iconColor: "#059669",
+                iconBg: "#ecfdf5",
               },
               {
                 icon: Brain,
                 title: "Future-Proof Skills",
                 items: ["AI / ML", "Cloud Computing", "DevOps", "Data Engineering", "Cybersecurity"],
-                color: "text-cyan-400",
-                bg: "bg-cyan-500/10",
-                border: "border-cyan-500/20",
+                iconColor: "#0891b2",
+                iconBg: "#ecfeff",
               },
               {
                 icon: TrendingUp,
                 title: "General Tech Skills",
                 items: ["Backend Dev", "Frontend Dev", "Databases", "Mobile", "Testing & QA"],
-                color: "text-blue-400",
-                bg: "bg-blue-500/10",
-                border: "border-blue-500/20",
+                iconColor: "#2563eb",
+                iconBg: "#eff6ff",
               },
               {
                 icon: Zap,
                 title: "Vulnerability Check",
                 items: ["Repetitive Coding", "Manual Testing", "Data Entry", "Basic Support", "Template Work"],
-                color: "text-amber-400",
-                bg: "bg-amber-500/10",
-                border: "border-amber-500/20",
+                iconColor: "#d97706",
+                iconBg: "#fffbeb",
               },
               {
                 icon: FileText,
                 title: "Resume Quality",
                 items: ["ATS Compatibility", "Keyword Density", "Content Length", "Section Coverage"],
-                color: "text-purple-400",
-                bg: "bg-purple-500/10",
-                border: "border-purple-500/20",
+                iconColor: "#7c3aed",
+                iconBg: "#f5f3ff",
               },
               {
                 icon: Lock,
                 title: "Career Readiness",
                 items: ["Learning Path", "Certifications", "Career Suggestions", "Skill Gaps"],
-                color: "text-pink-400",
-                bg: "bg-pink-500/10",
-                border: "border-pink-500/20",
+                iconColor: "#db2777",
+                iconBg: "#fdf2f8",
               },
             ].map((card, idx) => (
               <div
                 key={idx}
-                className={`${card.bg} border ${card.border} rounded-2xl p-6 hover:scale-[1.02] transition-all`}
+                className="rounded-xl p-6 transition-all hover:-translate-y-0.5"
+                style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}
               >
-                <card.icon className={`w-8 h-8 ${card.color} mb-4`} />
-                <h3 className="text-lg font-bold text-white mb-3">{card.title}</h3>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: card.iconBg }}>
+                  <card.icon className="w-5 h-5" style={{ color: card.iconColor }} />
+                </div>
+                <h3 className="text-lg font-bold mb-3" style={{ color: '#0f172a' }}>{card.title}</h3>
                 <ul className="space-y-1.5">
                   {card.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-400">
-                      <div className="w-1.5 h-1.5 rounded-full bg-current opacity-40" />
+                    <li key={i} className="flex items-center gap-2 text-sm" style={{ color: '#64748b' }}>
+                      <div className="w-1.5 h-1.5 rounded-full" style={{ background: card.iconColor, opacity: 0.5 }} />
                       {item}
                     </li>
                   ))}
@@ -363,11 +362,11 @@ PROJECTS
       </section>
 
       {/* Score Explanation */}
-      <section className="py-20 border-t border-white/5">
+      <section className="py-20" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-white mb-3">Score Interpretation</h2>
-            <p className="text-gray-400 max-w-lg mx-auto">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: '#0f172a' }}>Score Interpretation</h2>
+            <p className="max-w-lg mx-auto" style={{ color: '#64748b' }}>
               Understanding what your AI Career Safety Score means
             </p>
           </div>
@@ -377,9 +376,9 @@ PROJECTS
                 range: "7 – 10",
                 label: "AI Safe Zone",
                 icon: ShieldCheck,
-                color: "from-emerald-500 to-green-600",
-                border: "border-emerald-500/20",
-                bg: "bg-emerald-500/5",
+                color: "#059669",
+                bg: "#ecfdf5",
+                borderColor: "#a7f3d0",
                 desc: "Your profile shows strong resilience against automation trends. AI tools will likely assist you rather than replace you.",
                 tips: ["Continue upgrading skills", "Learn AI tools", "Move towards architecture roles"],
               },
@@ -387,9 +386,9 @@ PROJECTS
                 range: "4 – 6",
                 label: "Moderate Risk",
                 icon: Shield,
-                color: "from-amber-500 to-orange-600",
-                border: "border-amber-500/20",
-                bg: "bg-amber-500/5",
+                color: "#d97706",
+                bg: "#fffbeb",
+                borderColor: "#fde68a",
                 desc: "Some of your skills may become automated. Upgrading your technical stack and learning AI-assisted development is recommended.",
                 tips: ["Add cloud technologies", "Learn AI-assisted coding", "Improve system design"],
               },
@@ -397,27 +396,28 @@ PROJECTS
                 range: "0 – 3",
                 label: "High Risk",
                 icon: ShieldCheck,
-                color: "from-red-500 to-rose-600",
-                border: "border-red-500/20",
-                bg: "bg-red-500/5",
+                color: "#dc2626",
+                bg: "#fef2f2",
+                borderColor: "#fecaca",
                 desc: "Your resume indicates skills that may be significantly impacted by automation. Consider reskilling into high-demand technologies.",
                 tips: ["Learn data analytics", "Start AI/ML basics", "Explore DevOps & Cybersecurity"],
               },
             ].map((tier, idx) => (
               <div
                 key={idx}
-                className={`${tier.bg} border ${tier.border} rounded-2xl p-8 transition-all hover:scale-[1.02]`}
+                className="rounded-2xl p-8 transition-all hover:-translate-y-0.5"
+                style={{ background: tier.bg, border: `1px solid ${tier.borderColor}`, boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${tier.color} flex items-center justify-center mb-5`}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style={{ background: tier.color }}>
                   <tier.icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-sm font-mono text-gray-500 mb-1">Score {tier.range}</div>
-                <h3 className="text-xl font-bold text-white mb-3">{tier.label}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed mb-4">{tier.desc}</p>
+                <div className="text-sm font-mono mb-1" style={{ color: '#64748b' }}>Score {tier.range}</div>
+                <h3 className="text-xl font-bold mb-3" style={{ color: '#0f172a' }}>{tier.label}</h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: '#64748b' }}>{tier.desc}</p>
                 <ul className="space-y-2">
                   {tier.tips.map((tip, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                      <ChevronRight className="w-3 h-3 text-gray-600" />
+                    <li key={i} className="flex items-center gap-2 text-sm" style={{ color: '#334155' }}>
+                      <ChevronRight className="w-3 h-3" style={{ color: '#94a3b8' }} />
                       {tip}
                     </li>
                   ))}
@@ -428,21 +428,108 @@ PROJECTS
         </div>
       </section>
 
+      {/* Overview Cards — Light Theme */}
+      <section className="py-20" style={{ background: '#ffffff', borderTop: '1px solid #e2e8f0' }}>
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: '#0f172a' }}>
+              Explore Our Tools
+            </h2>
+            <p style={{ color: '#64748b' }} className="max-w-lg mx-auto">
+              Powerful AI-driven career intelligence modules designed to future-proof your professional journey
+            </p>
+          </div>
+          <div
+            className="grid gap-6 overview-grid"
+            style={{
+              gridTemplateColumns: 'repeat(3, 1fr)',
+            }}
+          >
+            <style>{`
+              .overview-card {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 1px 3px rgba(0,0,0,.04);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+              }
+              .overview-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+              }
+              @media (max-width: 1024px) {
+                .overview-grid {
+                  grid-template-columns: repeat(2, 1fr) !important;
+                }
+              }
+              @media (max-width: 640px) {
+                .overview-grid {
+                  grid-template-columns: 1fr !important;
+                }
+              }
+            `}</style>
+            {[
+              {
+                title: 'Risk Analyzer',
+                desc: 'Detect AI automation risk for role and skills.',
+                icon: Zap,
+              },
+              {
+                title: 'Simulation',
+                desc: 'Simulate future career scenarios and AI impact.',
+                icon: Cpu,
+              },
+              {
+                title: 'Decision Engine',
+                desc: 'Recommend best AI-safe career path.',
+                icon: Target,
+              },
+              {
+                title: 'Reputation',
+                desc: 'Calculate AI career strength score.',
+                icon: TrendingUp,
+              },
+              {
+                title: 'Digital Twin',
+                desc: 'Create virtual AI career model.',
+                icon: Brain,
+              },
+            ].map((card, idx) => (
+              <div key={idx} className="overview-card">
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+                  style={{ background: '#f1f5f9' }}
+                >
+                  <card.icon className="w-5 h-5" style={{ color: '#0f172a' }} />
+                </div>
+                <h3 className="text-lg font-bold mb-2" style={{ color: '#0f172a' }}>
+                  {card.title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#64748b' }}>
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Upload Section */}
-      <section ref={uploadSectionRef} className="py-20 border-t border-white/5" id="upload">
+      <section ref={uploadSectionRef} className="py-20" id="upload" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6">
-              <Shield className="w-4 h-4 text-cyan-400" />
-              <span className="text-sm text-cyan-300 font-medium">Free Career Analysis</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
+              <Shield className="w-4 h-4" style={{ color: '#2563eb' }} />
+              <span className="text-sm font-medium" style={{ color: '#2563eb' }}>Free Career Analysis</span>
             </div>
-            <h2 className="text-3xl font-bold text-white mb-3">Analyze Your Resume</h2>
-            <p className="text-gray-400">
+            <h2 className="text-3xl font-bold mb-3" style={{ color: '#0f172a' }}>Analyze Your Resume</h2>
+            <p style={{ color: '#64748b' }}>
               Paste your resume content below or upload a text file to get started
             </p>
           </div>
 
-          <div className="bg-white/[0.03] border border-white/5 rounded-3xl p-8">
+          <div className="rounded-3xl p-8" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,.04)' }}>
             {/* Drop zone */}
             <div
               onDragOver={(e) => {
@@ -452,11 +539,11 @@ PROJECTS
               onDragLeave={() => setDragActive(false)}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}
-              className={`relative border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all mb-6 ${
-                dragActive
-                  ? "border-cyan-500 bg-cyan-500/10"
-                  : "border-white/10 hover:border-white/20 hover:bg-white/[0.02]"
-              }`}
+              className="relative border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition-all mb-6"
+              style={{
+                borderColor: dragActive ? '#2563eb' : '#e2e8f0',
+                background: dragActive ? '#eff6ff' : '#f8fafc',
+              }}
             >
               <input
                 ref={fileInputRef}
@@ -465,15 +552,15 @@ PROJECTS
                 onChange={handleFileInput}
                 className="hidden"
               />
-              <Upload className={`w-10 h-10 mx-auto mb-3 ${dragActive ? "text-cyan-400" : "text-gray-600"}`} />
-              <p className="text-sm text-gray-400">
-                <span className="text-cyan-400 font-medium">Click to upload</span> or drag & drop
+              <Upload className="w-10 h-10 mx-auto mb-3" style={{ color: dragActive ? '#2563eb' : '#94a3b8' }} />
+              <p className="text-sm" style={{ color: '#64748b' }}>
+                <span className="font-medium" style={{ color: '#2563eb' }}>Click to upload</span> or drag & drop
               </p>
-              <p className="text-xs text-gray-600 mt-1">Supports .txt, .md files</p>
+              <p className="text-xs mt-1" style={{ color: '#94a3b8' }}>Supports .txt, .md files</p>
               {fileName && (
-                <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
-                  <FileText className="w-4 h-4 text-cyan-400" />
-                  <span className="text-sm text-cyan-300">{fileName}</span>
+                <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg" style={{ background: '#eff6ff', border: '1px solid #bfdbfe' }}>
+                  <FileText className="w-4 h-4" style={{ color: '#2563eb' }} />
+                  <span className="text-sm" style={{ color: '#2563eb' }}>{fileName}</span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
@@ -482,7 +569,7 @@ PROJECTS
                     }}
                     className="ml-1 cursor-pointer"
                   >
-                    <X className="w-3 h-3 text-gray-400 hover:text-white" />
+                    <X className="w-3 h-3" style={{ color: '#94a3b8' }} />
                   </button>
                 </div>
               )}
@@ -494,10 +581,11 @@ PROJECTS
                 value={resumeText}
                 onChange={(e) => setResumeText(e.target.value)}
                 placeholder="Or paste your resume text here...&#10;&#10;Include your skills, experience, education, certifications, and projects for the most accurate analysis."
-                className="w-full h-56 bg-white/[0.03] border border-white/10 rounded-2xl p-5 text-sm text-gray-300 placeholder-gray-600 resize-none focus:outline-none focus:border-cyan-500/40 transition-colors"
+                className="w-full h-56 rounded-2xl p-5 text-sm resize-none focus:outline-none transition-colors"
+                style={{ background: '#f8fafc', border: '1px solid #e2e8f0', color: '#0f172a', }}
               />
               {resumeText && (
-                <div className="absolute bottom-3 right-3 text-xs text-gray-600">
+                <div className="absolute bottom-3 right-3 text-xs" style={{ color: '#94a3b8' }}>
                   {resumeText.split(/\s+/).filter(Boolean).length} words
                 </div>
               )}
@@ -510,24 +598,26 @@ PROJECTS
                 disabled={!resumeText.trim()}
                 className={`w-full sm:flex-1 py-4 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   resumeText.trim()
-                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:opacity-90 shadow-lg shadow-cyan-500/25"
-                    : "bg-white/5 text-gray-600 cursor-not-allowed"
+                    ? "text-white"
+                    : "cursor-not-allowed"
                 }`}
+                style={resumeText.trim() ? { background: '#2563eb', boxShadow: '0 4px 14px rgba(37,99,235,0.25)' } : { background: '#f1f5f9', color: '#94a3b8' }}
               >
                 <Shield className="w-5 h-5" />
                 Analyze My Career Safety
               </button>
               <button
                 onClick={loadSample}
-                className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-gray-400 font-medium hover:bg-white/10 transition-all cursor-pointer text-sm"
+                className="w-full sm:w-auto px-6 py-4 rounded-2xl font-medium transition-all cursor-pointer text-sm"
+                style={{ background: '#f1f5f9', color: '#0f172a', border: '1px solid #e2e8f0' }}
               >
                 Load Sample
               </button>
             </div>
 
             <div className="flex items-center justify-center gap-2 mt-4">
-              <Lock className="w-3 h-3 text-gray-600" />
-              <p className="text-xs text-gray-600">
+              <Lock className="w-3 h-3" style={{ color: '#94a3b8' }} />
+              <p className="text-xs" style={{ color: '#94a3b8' }}>
                 Your resume data is processed locally in your browser. We don't store or send your data anywhere.
               </p>
             </div>
@@ -536,15 +626,15 @@ PROJECTS
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-8">
+      <footer className="py-8" style={{ borderTop: '1px solid #e2e8f0', background: '#ffffff' }}>
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm text-gray-400">
-              Path4Career <span className="text-cyan-400">AI Career Shield™</span>
+            <Shield className="w-4 h-4" style={{ color: '#2563eb' }} />
+            <span className="text-sm" style={{ color: '#64748b' }}>
+              Path4Career <span style={{ color: '#2563eb' }}>AI Career Shield™</span>
             </span>
           </div>
-          <p className="text-xs text-gray-600">
+          <p className="text-xs" style={{ color: '#94a3b8' }}>
             © {new Date().getFullYear()} Path4Career. Career guidance powered by intelligent analysis.
           </p>
         </div>

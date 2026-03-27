@@ -37,9 +37,9 @@ export default function ScoreGauge({ score, label, size = "lg", delay = 0 }: Sco
   }, [score, delay]);
 
   const getColor = (s: number) => {
-    if (s >= 7) return { stroke: "#10b981", bg: "rgba(16,185,129,0.1)", text: "text-emerald-400" };
-    if (s >= 4) return { stroke: "#f59e0b", bg: "rgba(245,158,11,0.1)", text: "text-amber-400" };
-    return { stroke: "#ef4444", bg: "rgba(239,68,68,0.1)", text: "text-red-400" };
+    if (s >= 7) return { stroke: "#10b981", text: "#059669" };
+    if (s >= 4) return { stroke: "#f59e0b", text: "#d97706" };
+    return { stroke: "#ef4444", text: "#dc2626" };
   };
 
   const colors = getColor(score);
@@ -52,7 +52,7 @@ export default function ScoreGauge({ score, label, size = "lg", delay = 0 }: Sco
           cy={svgSize / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
+          stroke="#e2e8f0"
           strokeWidth={stroke}
         />
         <circle
@@ -66,18 +66,18 @@ export default function ScoreGauge({ score, label, size = "lg", delay = 0 }: Sco
           strokeDashoffset={circumference - progress}
           strokeLinecap="round"
           style={{
-            filter: `drop-shadow(0 0 8px ${colors.stroke}50)`,
+            filter: `drop-shadow(0 0 6px ${colors.stroke}40)`,
             transition: "stroke-dashoffset 0.05s linear",
           }}
         />
       </svg>
       <div className={`${isLarge ? "-mt-[140px] mb-[80px]" : "-mt-[65px] mb-[30px]"} flex flex-col items-center`}>
-        <span className={`${isLarge ? "text-5xl" : "text-xl"} font-bold ${colors.text}`}>
+        <span className={`${isLarge ? "text-5xl" : "text-xl"} font-bold`} style={{ color: colors.text }}>
           {animatedScore.toFixed(1)}
         </span>
-        <span className={`${isLarge ? "text-sm" : "text-[10px]"} text-gray-400`}>/10</span>
+        <span className={`${isLarge ? "text-sm" : "text-[10px]"}`} style={{ color: '#94a3b8' }}>/10</span>
       </div>
-      <p className={`${isLarge ? "text-sm" : "text-xs"} text-gray-400 text-center mt-1`}>{label}</p>
+      <p className={`${isLarge ? "text-sm" : "text-xs"} text-center mt-1`} style={{ color: '#64748b' }}>{label}</p>
     </div>
   );
 }

@@ -7,28 +7,31 @@ interface Props {
 
 const riskColors = {
   low: {
-    bg: 'bg-emerald-500/10',
-    border: 'border-emerald-500/20',
-    text: 'text-emerald-400',
-    pill: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
-    bar: 'bg-emerald-500',
-    glow: 'shadow-emerald-500/20',
+    bg: '#ecfdf5',
+    border: '#a7f3d0',
+    text: '#059669',
+    pillBg: '#d1fae5',
+    pillText: '#047857',
+    pillBorder: '#6ee7b7',
+    bar: '#10b981',
   },
   medium: {
-    bg: 'bg-amber-500/10',
-    border: 'border-amber-500/20',
-    text: 'text-amber-400',
-    pill: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-    bar: 'bg-amber-500',
-    glow: 'shadow-amber-500/20',
+    bg: '#fffbeb',
+    border: '#fde68a',
+    text: '#d97706',
+    pillBg: '#fef3c7',
+    pillText: '#b45309',
+    pillBorder: '#fcd34d',
+    bar: '#f59e0b',
   },
   high: {
-    bg: 'bg-red-500/10',
-    border: 'border-red-500/20',
-    text: 'text-red-400',
-    pill: 'bg-red-500/20 text-red-300 border-red-500/30',
-    bar: 'bg-red-500',
-    glow: 'shadow-red-500/20',
+    bg: '#fef2f2',
+    border: '#fecaca',
+    text: '#dc2626',
+    pillBg: '#fee2e2',
+    pillText: '#b91c1c',
+    pillBorder: '#fca5a5',
+    bar: '#ef4444',
   },
 };
 
@@ -53,15 +56,15 @@ function RiskCard({
   const percentage = (dimension.score / 10) * 100;
 
   return (
-    <div className={`rounded-2xl ${colors.bg} border ${colors.border} p-5 hover:scale-[1.02] transition-all`}>
+    <div className="rounded-2xl p-5 hover:scale-[1.02] transition-all" style={{ background: colors.bg, border: `1px solid ${colors.border}` }}>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2.5">
-          <div className={`p-2 rounded-xl ${colors.bg}`}>
-            <Icon className={`w-5 h-5 ${colors.text}`} />
+          <div className="p-2 rounded-xl" style={{ background: '#ffffff' }}>
+            <Icon className="w-5 h-5" style={{ color: colors.text }} />
           </div>
-          <h4 className="text-sm font-semibold text-white">{title}</h4>
+          <h4 className="text-sm font-semibold" style={{ color: '#0f172a' }}>{title}</h4>
         </div>
-        <span className={`text-xs px-3 py-1 rounded-full font-semibold border ${colors.pill}`}>
+        <span className="text-xs px-3 py-1 rounded-full font-semibold" style={{ background: colors.pillBg, color: colors.pillText, border: `1px solid ${colors.pillBorder}` }}>
           {dimension.level.toUpperCase()}
         </span>
       </div>
@@ -69,25 +72,25 @@ function RiskCard({
       {/* Score bar */}
       <div className="mb-3">
         <div className="flex items-center justify-between mb-1.5">
-          <span className="text-xs text-gray-500">Risk Level</span>
-          <span className={`text-sm font-bold ${colors.text}`}>{dimension.score}/10</span>
+          <span className="text-xs" style={{ color: '#94a3b8' }}>Risk Level</span>
+          <span className="text-sm font-bold" style={{ color: colors.text }}>{dimension.score}/10</span>
         </div>
-        <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+        <div className="h-2 rounded-full overflow-hidden" style={{ background: '#e2e8f0' }}>
           <div
-            className={`h-full ${colors.bar} rounded-full transition-all duration-1000`}
-            style={{ width: `${percentage}%` }}
+            className="h-full rounded-full transition-all duration-1000"
+            style={{ background: colors.bar, width: `${percentage}%` }}
           />
         </div>
       </div>
 
-      <p className="text-xs text-gray-400 leading-relaxed mb-3">{dimension.description}</p>
+      <p className="text-xs leading-relaxed mb-3" style={{ color: '#64748b' }}>{dimension.description}</p>
 
       {/* Factors */}
       <div className="space-y-1.5">
         {dimension.factors.map((factor, idx) => (
           <div key={idx} className="flex items-start gap-2">
-            <div className={`w-1.5 h-1.5 rounded-full ${colors.bar} mt-1.5 flex-shrink-0`} />
-            <span className="text-xs text-gray-400">{factor}</span>
+            <div className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: colors.bar }} />
+            <span className="text-xs" style={{ color: '#64748b' }}>{factor}</span>
           </div>
         ))}
       </div>
@@ -101,15 +104,9 @@ export default function RiskAnalyzer({ data }: Props) {
   return (
     <div className="space-y-6">
       {/* Overall Risk Header */}
-      <div className={`rounded-2xl ${overallColors.bg} border ${overallColors.border} p-6 md:p-8`}>
+      <div className="rounded-2xl p-6 md:p-8" style={{ background: overallColors.bg, border: `1px solid ${overallColors.border}` }}>
         <div className="flex flex-col sm:flex-row items-center gap-5">
-          <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${
-            data.overallRisk === 'low'
-              ? 'from-emerald-500 to-green-600'
-              : data.overallRisk === 'medium'
-              ? 'from-amber-500 to-orange-600'
-              : 'from-red-500 to-rose-600'
-          } flex items-center justify-center shadow-lg ${overallColors.glow}`}>
+          <div className="w-20 h-20 rounded-2xl flex items-center justify-center" style={{ background: overallColors.bar, boxShadow: `0 8px 20px ${overallColors.bar}33` }}>
             {data.overallRisk === 'low' ? (
               <ShieldCheck className="w-10 h-10 text-white" />
             ) : data.overallRisk === 'high' ? (
@@ -120,13 +117,13 @@ export default function RiskAnalyzer({ data }: Props) {
           </div>
           <div className="text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start gap-3 mb-1">
-              <h2 className="text-xl font-bold text-white">Overall Career Risk</h2>
-              <span className={`text-xs px-3 py-1 rounded-full font-bold border ${overallColors.pill}`}>
+              <h2 className="text-xl font-bold" style={{ color: '#0f172a' }}>Overall Career Risk</h2>
+              <span className="text-xs px-3 py-1 rounded-full font-bold" style={{ background: overallColors.pillBg, color: overallColors.pillText, border: `1px solid ${overallColors.pillBorder}` }}>
                 {data.overallRisk.toUpperCase()}
               </span>
             </div>
-            <p className="text-gray-400 text-sm">
-              Combined risk score: <strong className={overallColors.text}>{data.overallScore}/10</strong>
+            <p className="text-sm" style={{ color: '#64748b' }}>
+              Combined risk score: <strong style={{ color: overallColors.text }}>{data.overallScore}/10</strong>
             </p>
           </div>
         </div>
